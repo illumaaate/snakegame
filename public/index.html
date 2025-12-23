@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>SnakeArena — вход</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">🐍</div>
+      <div>SnakeArena</div>
+    </div>
+    <div id="greeting" class="greeting"></div>
+    <nav>
+      <ul>
+        <li><a class="active" href="index.html">Вход</a></li>
+        <li><a href="game.html">Игра</a></li>
+        <li><a href="leaderboard.html">Лидерборд</a></li>
+        <li><a href="about.html">О проекте</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <section class="grid">
+    <article class="card">
+      <h2>Регистрация</h2>
+      <p class="sub">Создай аккаунт, чтобы сохранять рекорды и попадать в таблицу лидеров.</p>
+
+      <form id="register-form" novalidate>
+        <label>Имя пользователя
+          <input id="reg-username" minlength="3" maxlength="24" required />
+        </label>
+        <label>Пароль (мин. 6 символов)
+          <input id="reg-password" type="password" minlength="6" required />
+        </label>
+
+        <button type="submit">Создать аккаунт</button>
+      </form>
+
+      <div id="register-msg" class="msg"></div>
+    </article>
+
+    <article class="card">
+      <h2>Вход</h2>
+      <p class="sub">После входа откроется страница игры и будет доступна отправка результатов.</p>
+
+      <form id="login-form" novalidate>
+        <label>Имя пользователя
+          <input id="login-username" required />
+        </label>
+        <label>Пароль
+          <input id="login-password" type="password" required />
+        </label>
+
+        <button type="submit">Войти</button>
+      </form>
+
+      <hr class="sep" />
+
+      <div class="row">
+        <a href="about.html#features" class="badge">Что умеет сайт (якорь)</a>
+        <a href="https://developer.mozilla.org/" class="badge" target="_blank" rel="noreferrer"
+           style="border-color: rgba(196,181,253,0.55)">MDN (внешняя ссылка)</a>
+      </div>
+
+      <div id="login-msg" class="msg"></div>
+    </article>
+  </section>
+</main>
+
+<footer class="page">
+  <div class="msg">SnakeArena — учебный проект (HTML/CSS/JS + Express + MongoDB).</div>
+</footer>
+
+<script src="config.js"></script>
+<script src="ui.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>

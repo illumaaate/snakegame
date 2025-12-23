@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>SnakeArena — лидерборд</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">🐍</div>
+      <div>SnakeArena</div>
+    </div>
+    <div id="greeting" class="greeting"></div>
+    <nav>
+      <ul>
+        <li><a href="game.html">Игра</a></li>
+        <li><a href="leaderboard.html" class="active">Лидерборд</a></li>
+        <li><a href="about.html">О проекте</a></li>
+        <li><a href="index.html" id="auth-action">Вход</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <section class="card">
+    <h2>Топ игроков</h2>
+    <p class="sub">
+      Сортировка по лучшему рекорду каждого пользователя. Нажми на строку игрока — откроется окно с JSON и XML.
+    </p>
+
+    <table class="table" id="lb">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Игрок</th>
+          <th>Рекорд</th>
+          <th>Последние 3 игры (вложенная таблица)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="lb-msg" class="msg"></div>
+  </section>
+</main>
+
+<footer class="page">
+  <div class="msg">Подсказка: таблица кликабельная — открой сырьё данных игрока.</div>
+</footer>
+
+<!-- Модальное окно -->
+<dialog id="lb-dialog" class="dialog">
+  <div class="dialog-head">
+    <div>
+      <div class="dialog-title">Данные игрока</div>
+      <div class="dialog-sub" id="lb-sub">—</div>
+    </div>
+    <button class="secondary" id="lb-close" type="button">Закрыть</button>
+  </div>
+
+  <div class="dialog-body">
+    <div class="dialog-columns">
+      <section>
+        <h3>JSON</h3>
+        <pre id="lb-json" class="code"></pre>
+      </section>
+      <section>
+        <h3>XML</h3>
+        <pre id="lb-xml" class="code"></pre>
+      </section>
+    </div>
+  </div>
+
+  <form method="dialog" class="dialog-foot">
+    <button class="secondary">ОК</button>
+  </form>
+</dialog>
+
+<script src="config.js"></script>
+<script src="ui.js"></script>
+<script src="leaderboard.js"></script>
+</body>
+</html>

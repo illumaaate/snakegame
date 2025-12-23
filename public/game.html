@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>SnakeArena — игра</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">🐍</div>
+      <div>SnakeArena</div>
+    </div>
+    <div id="greeting" class="greeting"></div>
+    <nav>
+      <ul>
+        <li><a href="game.html" class="active">Игра</a></li>
+        <li><a href="leaderboard.html">Лидерборд</a></li>
+        <li><a href="about.html">О проекте</a></li>
+        <li><a href="index.html" id="logout-link">Выйти</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+  <section class="grid">
+    <article class="card">
+      <h1>Змейка</h1>
+      <p class="sub">Управление: стрелки или WASD. Пауза: Space. Скорость увеличивается при наборе очков.</p>
+
+      <canvas id="game" width="520" height="520"></canvas>
+
+      <div class="row" style="margin-top:12px">
+        <span class="badge">Игрок: <b id="me">—</b></span>
+        <span class="badge">Счёт: <b id="score">0</b></span>
+        <span class="badge">Рекорд: <b id="best">0</b></span>
+      </div>
+
+      <div class="row" style="margin-top:12px">
+        <button id="btn-start">Новая игра</button>
+        <button id="btn-pause" class="secondary">Пауза</button>
+        <button id="btn-rules" class="secondary">Правила</button>
+      </div>
+
+      <section id="rules" class="card hidden" style="margin-top:12px">
+        <h2>Правила</h2>
+        <ol class="msg">
+          <li>Съедай еду (красный квадрат), чтобы увеличивать счёт.</li>
+          <li>Нельзя врезаться в стены и в собственное тело.</li>
+          <li>Результат отправляется на сервер после окончания игры.</li>
+        </ol>
+      </section>
+
+      <div id="game-msg" class="msg"></div>
+    </article>
+
+    <article class="card">
+      <h2>Последние игры (слайдер)</h2>
+      <p class="sub">Нажми на запись — откроется окно с JSON и XML выбранной игры.</p>
+
+      <div class="slider" id="score-slider">
+        <div class="slider-viewport" id="slider-viewport"></div>
+
+        <div class="slider-nav">
+          <button class="secondary" id="prev-page">←</button>
+          <div class="dots" id="dots"></div>
+          <button class="secondary" id="next-page">→</button>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="page">
+  <div class="msg">По поводу сайта писать в telegram: @sw1nt.</div>
+</footer>
+
+<!-- Модальное окно (native dialog) -->
+<dialog id="detail-dialog" class="dialog">
+  <div class="dialog-head">
+    <div>
+      <div class="dialog-title">Детали игры</div>
+      <div class="dialog-sub" id="detail-sub">—</div>
+    </div>
+    <button class="secondary" id="detail-close" type="button">Закрыть</button>
+  </div>
+
+  <div class="dialog-body">
+    <div class="dialog-columns">
+      <section>
+        <h3>JSON</h3>
+        <pre id="detail-json" class="code"></pre>
+      </section>
+      <section>
+        <h3>XML</h3>
+        <pre id="detail-xml" class="code"></pre>
+      </section>
+    </div>
+  </div>
+
+  <form method="dialog" class="dialog-foot">
+    <button class="secondary">ОК</button>
+  </form>
+</dialog>
+
+<script src="config.js"></script>
+<script src="ui.js"></script>
+<script src="auth.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
